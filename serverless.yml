@@ -1,0 +1,24 @@
+# Component Config
+#nextJsSizeErrorRepro:
+#  component: serverless-next.js
+
+# Plugin Config
+service: nextjs-size-error-repro
+
+provider:
+  name: aws
+  stage: ${opt:stage}
+  runtime: nodejs10.x
+  region: eu-west-1
+  versionFunctions: false
+
+plugins:
+  - serverless-nextjs-plugin
+
+package:
+  exclude:
+    - ./**
+
+custom:
+  serverless-nextjs:
+    cloudFront: false
